@@ -1,0 +1,61 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col justify-center items-center">
+    <svg class="w-20 h-20  text-gray-800 dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+    </svg>
+    
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">¡Bienvenido! <br> Ingrese con su cuenta </h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" [formGroup]="formulario" (ngSubmit)="sendForm()">
+      <div>
+        <label for="usuario" class="block text-sm font-medium leading-6 text-gray-900">Usuario</label>
+        <div class="mt-2">
+          <input id="usuario" formControlName="usuario" type="text" autocomplete="username" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2">
+        </div>
+        <span class="text-red-500">
+          {{ getErrorMessage('usuario') }}
+        </span>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+          <div class="text-sm flex justify-center items-center gap-1">
+            <span  class="font-semibold text-indigo-600 hover:text-indigo-500 cursor-pointer" (click)="clickMostrarPassword()">{{showPassword ? "Ocultar Password" : "Ver Password"}}</span>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password" formControlName="password" type="{{showPassword ? 'text' : 'password' }}" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2">
+        </div>
+        <span class="text-red-500">
+          {{ getErrorMessage('password') }}
+        </span>
+      </div>
+
+      <div class="flex flex-col justify-center items-center">
+        <button type="submit" class="flex w-full justify-center rounded-md {{loading || !formulario.valid ? 'bg-indigo-300' : 'bg-indigo-500' }} px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm {{loading || !formulario.valid ? 'bg-indigo-300' : 'hover:bg-indigo-300' }} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"  [disabled]="loading || !formulario.valid" >
+          
+          Sign in w
+       @if (loading) {
+        <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+          <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-9 w-9"></div>
+      </div>
+       }
+       @else {
+        
+       }
+        
+        </button>
+        <span class="text-center mt-4 text-red-500 font-semibold">{{errorEnSolicitud}}</span>
+      </div>
+    </form>
+
+
+    <p class="mt-10 text-center text-sm text-gray-500">
+      ¿Si tiene algun problema? Comunicarse por 
+      <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">WhatsApp</a>
+    </p>
+  </div>
+</div>
