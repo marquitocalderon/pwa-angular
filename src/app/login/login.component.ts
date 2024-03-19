@@ -74,9 +74,9 @@ export class LoginComponent implements OnInit {
             this.formulario.reset(); 
           }
           else {
+            this.formulario.reset();
             this.loading = false;
             window.location.href = "/";
-            this.formulario.reset();
           }
           
 
