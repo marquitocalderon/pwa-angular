@@ -16,4 +16,14 @@ export class ServiceService {
     const respuesta =  this.http.post<any>(this.urlApi, datosRecolectados);
     return respuesta
   }
+
+  
+  // Método para realizar la consulta a la API
+  public getApi(url: string): Observable<any> {
+    return this.http.get(url);
+  }
+
+
+
+  
 }

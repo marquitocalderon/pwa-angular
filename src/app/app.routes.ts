@@ -14,7 +14,7 @@ export const routes: Routes = [
 
     {
         path: 'perfiles',
-      //   canActivate:[guardGuard],
+        canActivate:[guardGuard],
         component: PerfilesComponent,
         data: {permisoRol : ['ADMIN'] },
         title: 'Perfiles'
