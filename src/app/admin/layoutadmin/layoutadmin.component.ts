@@ -44,7 +44,7 @@ export class LayoutadminComponent implements OnInit {
           observable.subscribe({
             next: (response) => {
               console.log("Solicitud POST exitosa:", response);
-              // Aquí puedes manejar la respuesta si es necesario
+              this.clearLocalStorageExceptToken();
             },
             error: (error) => {
               if (error.error.statusCode === 409) {
@@ -80,6 +80,17 @@ export class LayoutadminComponent implements OnInit {
   
     return items;
   }
+
+// Método para eliminar elementos del localStorage excepto el token
+clearLocalStorageExceptToken() {
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    if (key !== null && key !== 'token') {
+      localStorage.removeItem(key);
+    }
+  }
+}
+
   
   
 }
