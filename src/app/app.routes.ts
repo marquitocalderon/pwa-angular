@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { PerfilesComponent } from './perfiles/perfiles.component';
+import { PerfilesComponent } from './admin/perfiles/perfiles.component';
 import { LoginComponent } from './login/login.component';
 import { guardGuard } from './core/guards/guard.guard';
 
@@ -12,11 +12,12 @@ export const routes: Routes = [
        title: 'Login'
     },
 
+    
     {
-        path: 'perfiles',
-        canActivate:[guardGuard],
-        component: PerfilesComponent,
-        data: {permisoRol : ['ADMIN'] },
-        title: 'Perfiles'
-     }
+      path: "admin",
+      canActivate:[guardGuard],
+      data: {permisoRol : ['ADMIN'] },
+      loadChildren: () => import('./admin/admin.routes').then(ruta => ruta.ADMIN_RUTAS)
+  },
+
 ];

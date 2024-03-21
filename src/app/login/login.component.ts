@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
 
           if (decodedToken.role === "ADMIN") {
             this.loading = false;
-            window.location.href = "/perfiles";
+            window.location.href = "/admin";
             this.formulario.reset();
           }
           else if (decodedToken.role === 'USUARIO') {
@@ -88,6 +88,8 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (atrapar) => {
+
+        console.log(atrapar)
 
         if (atrapar.error.statusCode === 400) {
           this.errorEnSolicitud = atrapar.error.message[0]

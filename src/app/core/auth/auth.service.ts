@@ -3,7 +3,7 @@ import * as jwt from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export default class AuthService {
 
 
   decodeToken() {

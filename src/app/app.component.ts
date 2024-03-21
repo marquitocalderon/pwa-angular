@@ -10,23 +10,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  estadoRed: boolean = false;
-
-  constructor(private servicioRed: InternetService) {}
-
-
-  verConexion() {
-    this.servicioRed.getApi().subscribe({
-      next: (data) => {
-        console.log(data);
-        this.estadoRed = true;
-        alert("ESTADO DE SU INTERNET ES " + this.estadoRed);
-      },
-      error: (error) => {
-        console.error(error)
-        this.estadoRed = false;
-        alert("ESTADO DE SU INTERNET ES " + this.estadoRed);
-      }
-    });
-  }
 }
