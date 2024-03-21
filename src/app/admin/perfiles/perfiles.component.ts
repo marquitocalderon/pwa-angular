@@ -56,7 +56,7 @@ export class PerfilesComponent implements OnInit {
           console.log('Estoy en 504');
           this.handleLocalStorage(formulario);
         } else {
-          alert('Problema en el servidor');
+          alert('Problema en el servidor23');
         }
       }
     });
