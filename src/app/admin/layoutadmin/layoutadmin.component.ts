@@ -47,10 +47,10 @@ export class LayoutadminComponent implements OnInit {
               // Aquí puedes manejar la respuesta si es necesario
             },
             error: (error) => {
-              if (error.error.status === 409) {
+              if (error.error.statusCode === 409) {
                 alert("dato repetido");
               } 
-              else if (error.error.status === 400){
+              else if (error.error.statusCode === 400){
                 alert("Validacion de caracteres de la base de datos ");
               }
             }
