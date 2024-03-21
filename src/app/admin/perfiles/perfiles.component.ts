@@ -44,6 +44,7 @@ export class PerfilesComponent implements OnInit {
       next: (response) => {
         console.log(response);
         this.getData();
+        this.form.reset()
       },
       error: (error) => {
         console.log('Error:', error);
@@ -55,6 +56,7 @@ export class PerfilesComponent implements OnInit {
         } else if (error.status === 504) {
           console.log('Estoy en 504');
           this.handleLocalStorage(formulario);
+          this.form.reset()
         } else {
           alert('Problema en el servidor23');
         }

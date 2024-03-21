@@ -47,8 +47,12 @@ export class LayoutadminComponent implements OnInit {
               // Aquí puedes manejar la respuesta si es necesario
             },
             error: (error) => {
-              console.error("Error en la solicitud POST:", error);
-              // Aquí puedes manejar el error si es necesario
+              if (error.error.status === 409) {
+                alert("dato repetido");
+              } 
+              else if (error.error.status === 400){
+                alert("Validacion de caracteres de la base de datos ");
+              }
             }
           });
         });
