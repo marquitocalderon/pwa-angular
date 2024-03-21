@@ -27,6 +27,35 @@ export class ServiceService {
   public getApi(url: string): Observable<any> {
     return this.http.get(url);
   }
+
+  postApiFromLocalStorageItems(items: [string, any][]): Observable<any>[] {
+    let observables: Observable<any>[] = [];
+  
+    items.forEach(item => {
+      let clave = item[0];
+      let valor = item[1];
+  
+      console.log(clave);
+      console.log(valor);
+  
+      // Verificar si el valor es un array de objetos
+      if (Array.isArray(valor) && valor.length > 0 && typeof valor[0] === 'object') {
+        // Construir la URL utilizando la clave
+        let url = `https://backend-vercel-psi.vercel.app/${clave}`;
+  
+        // Realizar un map sobre los objetos dentro del array de objetos
+        let datos = valor.map(objeto => {
+          return this.http.post(url, objeto);
+        });
+  
+        // Agregar los observables generados a la lista de observables
+        observables.push(...datos);
+      }
+    });
+  
+    return observables;
+  }
+  
   
 
 
