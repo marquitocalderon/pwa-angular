@@ -17,11 +17,17 @@ export class ServiceService {
     return respuesta
   }
 
+  public postApi(url: string, datos: any): Observable<any> {
+    return this.http.post(url, datos);
+  }
+
+
   
   // Método para realizar la consulta a la API
   public getApi(url: string): Observable<any> {
     return this.http.get(url);
   }
+  
 
 
 

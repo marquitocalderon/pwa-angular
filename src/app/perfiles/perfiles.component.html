@@ -29,10 +29,10 @@
     </div>
   </div>
   <!-- Formulario -->
-  <form class="mt-8 px-36 max-lg:px-0" action="#" method="POST">
+  <form class="mt-8 px-36 max-lg:px-0" [formGroup]="form" (ngSubmit)="enviarDatos($event)">
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre_perfil">Nombre de Perfil</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre_perfil" type="text" placeholder="Nombre de Perfil">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="nombre_perfil"  formControlName="nombre_perfil" id="nombre_perfil" type="text" placeholder="Nombre de Perfil">
     </div>
     <!-- Puedes agregar más campos aquí -->
     <div class="flex items-center justify-between">

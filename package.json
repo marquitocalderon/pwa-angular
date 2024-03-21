@@ -21,6 +21,8 @@
     "@angular/router": "^17.3.0",
     "@angular/service-worker": "^17.3.0",
     "jwt-decode": "^4.0.0",
+    "ng-connection-service": "^9.0.3",
+    "pouchdb-browser": "^8.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
